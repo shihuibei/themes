@@ -172,39 +172,7 @@ function trigger_resizable()
 				});
 			});
 		});
-		// Sidebar Toggle
-		$('a[data-toggle="sidebar"]').each(function(i, el)
-		{
-			$(el).on('click', function(ev)
-			{
-				ev.preventDefault();
-				if(public_vars.$sidebarMenu.hasClass('collapsed'))
-				{
-					public_vars.$sidebarMenu.removeClass('collapsed');
-					ps_init();
-				}
-				else
-				{
-					public_vars.$sidebarMenu.addClass('collapsed');
-					ps_destroy();
-				}
-				$(window).trigger('xenon.resize');
-			});
-		});
-		// Mobile Menu Trigger
-		$('a[data-toggle="mobile-menu"]').on('click', function(ev)
-		{
-			ev.preventDefault();
-			public_vars.$mainMenu.add(public_vars.$sidebarProfile).toggleClass('mobile-is-visible');
-            if($("#main-menu").hasClass('mobile-is-visible') === true){
-				public_vars.$sidebarMenu.removeClass('collapsed');
-                $(".sidebar-menu-inner").css("max-height",window.innerHeight);
-                ps_init();
-            }
-            else{
-                ps_destroy();
-            }
-		});
+		
 		// Mobile Menu Trigger for Horizontal Menu
 		$('a[data-toggle="mobile-menu-horizontal"]').on('click', function(ev)
 		{
